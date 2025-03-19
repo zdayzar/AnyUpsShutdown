@@ -84,6 +84,3 @@ ps aux | grep check_internet.sh
 ---
 
 ✅ **Now the script will automatically monitor the connection every time the system boots up!** 🚀 Let me know if you’d like to add anything else! 🌟  
-
-## 📄 License
-MIT License. Contributions welcome! 🌟
