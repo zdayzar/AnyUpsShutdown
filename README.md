@@ -47,5 +47,46 @@ tail -f /var/log/check_connection.log
 - Requires `sudo` for shutdown.
 - Adjust the shutdown command if needed.
 
+Here’s the improved **crontab setup** with the path `/usr/local/bin/check_internet.sh`:
+
+---
+
+## 🛠 **Auto-Start on Boot (Optional)**  
+
+To run this script automatically at startup, follow these steps:  
+
+### 1️⃣ **Move the Script to `/usr/local/bin/`**  
+```bash
+sudo mv check_connection.sh /usr/local/bin/check_internet.sh
+sudo chmod +x /usr/local/bin/check_internet.sh
+```
+
+### 2️⃣ **Add to Crontab**  
+Edit the root crontab to run the script at boot:  
+```bash
+sudo crontab -e
+```
+
+Add this line at the bottom to ensure it starts on every reboot:  
+```bash
+@reboot /usr/local/bin/check_internet.sh &
+```
+
+### 3️⃣ **Restart to Test (Optional)**  
+You can reboot your system to verify the script starts automatically:  
+```bash
+sudo reboot
+```
+
+### 4️⃣ **Check if the Script is Running**  
+After rebooting, verify if the script is running:  
+```bash
+ps aux | grep check_internet.sh
+```
+
+---
+
+✅ **Now the script will automatically monitor the connection every time the system boots up!** 🚀 Let me know if you’d like to add anything else! 🌟  
+
 ## 📄 License
 MIT License. Contributions welcome! 🌟
