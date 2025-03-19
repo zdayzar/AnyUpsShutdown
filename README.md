@@ -1,11 +1,51 @@
-# anyupsshutdown
-AnyUpsShutdown is a Bash script that monitors a router/IP connection. After a set number of failures, it automatically shuts down the system to prevent UPS battery drain. Configurable timeout, retry limit, and sleep interval. Supports dry-run mode for testing without shutdown. Logs connection status. Requires sudo.
+# 🚀 AnyUpsShutdown
 
-Alright! Let’s add a dry-run mode so you can test the script without actually shutting down the system. I’ll add a flag like --dry-run that you can pass when running the script. Here’s the updated version:
-sudo ./check_connection.sh --dry-run
+A Bash script to monitor router/IP connectivity and automatically shut down the system after repeated failures — perfect for UPS-powered setups to prevent battery drain.
 
-In dry-run mode:
-No shutdown will happen.
-It will log everything and print a message when the shutdown would have occurred.
-When you’re ready to run it for real, just remove the --dry-run:
+## 📦 Features
+- Monitors connection to a target IP.
+- Automatic shutdown after a set number of failures.
+- Dry-run mode for safe testing.
+- Logs status and failures.
+
+## ⚙️ Configuration
+Edit these variables in the script:
+- `ROUTER_IP` – IP to ping (default: 192.168.0.1)
+- `TIMEOUT` – Ping timeout in seconds (default: 5)
+- `LIMITGAGAL` – Max consecutive failures before shutdown (default: 30)
+- `SLEEP_INTERVAL` – Time between checks (default: 10)
+- `LOG_FILE` – Log file path (default: /var/log/check_connection.log)
+
+## 📥 Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/zdayzar/AnyUpsShutdown.git
+cd AnyUpsShutdown
+```
+2. Make the script executable:
+```bash
+chmod +x check_connection.sh
+```
+
+## ▶️ Usage
+Run in normal mode (shuts down after failures):
+```bash
 sudo ./check_connection.sh
+```
+Test with dry-run mode (no shutdown):
+```bash
+sudo ./check_connection.sh --dry-run
+```
+
+## 📋 Logs
+Logs are saved in the file specified by `LOG_FILE`:
+```bash
+tail -f /var/log/check_connection.log
+```
+
+## 📝 Notes
+- Requires `sudo` for shutdown.
+- Adjust the shutdown command if needed.
+
+## 📄 License
+MIT License. Contributions welcome! 🌟
