@@ -47,9 +47,6 @@ tail -f /var/log/check_connection.log
 - Requires `sudo` for shutdown.
 - Adjust the shutdown command if needed.
 
-Here’s the improved **crontab setup** with the path `/usr/local/bin/check_internet.sh`:
-
----
 
 ## 🛠 **Auto-Start on Boot (Optional)**  
 
